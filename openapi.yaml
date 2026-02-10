@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Air Export Shipment API
   version: 1.0.0
-  description: API for creating and managing air export shipment records.
+  description: API for creating Air shipment records.
 
 servers:
   - url: http://test.freightoscope.com
@@ -11,9 +11,9 @@ servers:
 paths:
   /CreateShipment:
     post:
-      summary: Create a new air export shipment
+      summary: Create a new air shipment
       description: >
-        Creates an air export shipment in Freightoscope.
+        Creates an air shipment in Freightoscope.
         Authentication is provided via query parameters in the request URL.
       operationId: createShipment
       parameters:
