@@ -1,0 +1,371 @@
+openapi: 3.0.3
+info:
+  title: Air Export Shipment API
+  version: 1.0.0
+  description: API for creating and managing air export shipment records.
+
+paths:
+  /shipments:
+    post:
+      summary: Create a new air export shipment
+      operationId: createShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shipment'
+      responses:
+        '201':
+          description: Shipment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+
+components:
+  schemas:
+    Shipment:
+      type: object
+      properties:
+        General:
+          $ref: '#/components/schemas/General'
+        Parties:
+          $ref: '#/components/schemas/Parties'
+        Routing:
+          $ref: '#/components/schemas/Routing'
+        Goods:
+          $ref: '#/components/schemas/Goods'
+        Handling:
+          $ref: '#/components/schemas/Handling'
+        documentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+      required:
+        - General
+        - Parties
+        - Routing
+        - Goods
+        - Handling
+
+    General:
+      type: object
+      properties:
+        ShipmentMode:
+          type: string
+          description: Mode of shipment
+          example: Air
+        ShipmentDirection:
+          type: string
+          description: Direction of shipment
+          example: Export
+        ShipmentType:
+          type: string
+          example: Branch
+        ReferenceNumber:
+          type: string
+          nullable: true
+        IsDomestic:
+          type: boolean
+        ShipmentNumber:
+          type: string
+        AWB_Type:
+          type: string
+          description: AWB type (Master/House)
+        ShipmentDate:
+          type: string
+          description: Shipment date (DD/MM/YYYY)
+          example: "19/01/2026"
+        DeliveryDate:
+          type: string
+          description: Delivery date (DD/MM/YYYY)
+          example: "19/01/2026"
+        Carrier:
+          $ref: '#/components/schemas/Carrier'
+        MAWB:
+          type: string
+          description: Master Air Waybill number
+        BL:
+          type: string
+          nullable: true
+        CMRNo:
+          type: string
+          nullable: true
+        ShipmentModeType:
+          type: string
+          nullable: true
+        ServiceType:
+          type: string
+          example: Express
+        JobType:
+          type: string
+          example: Direct
+        JobNumber:
+          type: string
+      required:
+        - ShipmentMode
+        - ShipmentDirection
+        - ShipmentType
+        - IsDomestic
+        - ShipmentNumber
+        - AWB_Type
+        - ShipmentDate
+        - DeliveryDate
+        - Carrier
+        - MAWB
+        - ServiceType
+        - JobType
+        - JobNumber
+
+    Carrier:
+      type: object
+      properties:
+        Code:
+          type: string
+          example: BA
+        Name:
+          type: string
+          example: British Airways
+      required:
+        - Code
+        - Name
+
+    Parties:
+      type: object
+      properties:
+        List:
+          type: array
+          items:
+            $ref: '#/components/schemas/Party'
+
+    Party:
+      type: object
+      properties:
+        Name:
+          type: string
+        PartyType:
+          type: string
+          example: Consignee
+        Address1:
+          type: string
+        Address2:
+          type: string
+        Address3:
+          type: string
+        City:
+          type: string
+        Country:
+          type: string
+        Zipcode:
+          type: string
+        State:
+          type: string
+        Phone:
+          type: string
+        Email:
+          type: string
+          format: email
+      required:
+        - Name
+        - PartyType
+        - City
+        - Country
+
+    Routing:
+      type: object
+      properties:
+        MovementType:
+          type: string
+          example: Door to Door
+        IncoTerm:
+          type: string
+          example: EXW
+        PickupAddress:
+          type: string
+        PlaceOfReceipt:
+          type: string
+        PlaceOfDelivery:
+          type: string
+        FinalDestination:
+          type: string
+          nullable: true
+        DeliveryAddress:
+          type: string
+        TransitTimeString:
+          type: string
+          description: Transit time in HH:MM:SS
+        ServiceTerm:
+          type: string
+          nullable: true
+        Flights:
+          type: array
+          items:
+            $ref: '#/components/schemas/Flight'
+        Voyages:
+          type: array
+          items:
+            type: object
+        Carriages:
+          type: array
+          items:
+            type: object
+
+    Flight:
+      type: object
+      properties:
+        FromAirport:
+          type: string
+          example: BOM
+        ToAirport:
+          type: string
+          example: BKK
+        Carrier:
+          $ref: '#/components/schemas/Carrier'
+        FlightNo:
+          type: string
+        ETD:
+          type: string
+          description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
+          example: "21/01/2026 00:07:00"
+        ETA:
+          type: string
+          description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
+          example: "21/01/2026 00:11:00"
+        ActualDepartureDate:
+          type: string
+          example: "21/01/2026 00:08:00"
+        ActualArrivalDate:
+          type: string
+          example: "21/01/2026 00:12:00"
+
+    Goods:
+      type: object
+      properties:
+        List:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoodsItem'
+
+    GoodsItem:
+      type: object
+      properties:
+        ContainerNo:
+          type: string
+        Pcs:
+          type: integer
+          example: 10
+        PackageType:
+          type: string
+          example: Box
+        CommodityType:
+          type: string
+          example: General
+        RateClass:
+          type: string
+          example: "M - Minimum Charge"
+        GrossWeight:
+          type: number
+          format: float
+          example: 50
+        GrossWeightUOM:
+          type: string
+          example: Kgs
+        ChargeableWeight:
+          type: number
+          format: float
+          example: 50
+        ChargeableWeightUOM:
+          type: string
+          example: Kgs
+        Volume:
+          type: number
+          format: float
+          example: 3.5
+        VolumeUOM:
+          type: string
+          example: CBM
+        SLAC:
+          type: integer
+          example: 57
+        CommodityItemNumber:
+          type: string
+          example: "8793"
+        Commodity:
+          type: string
+          example: Food Stuff
+        TruckNumber:
+          type: string
+        HSCodes:
+          type: array
+          items:
+            type: integer
+          example: [932192]
+        DimensionsUOM:
+          type: string
+          example: CM
+        Dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dimension'
+        MarksAndNumbers:
+          type: string
+          example: "Insurance: Yes | Certificate Of Origin: Yes | Commercial Invoice: Yes"
+        GoodsDescription:
+          type: string
+          example: Food Stuff
+
+    Dimension:
+      type: object
+      properties:
+        UOM:
+          type: string
+          example: CM
+        Pcs:
+          type: integer
+          example: 10
+        Length:
+          type: number
+          example: 10
+        Width:
+          type: number
+          example: 10
+        Height:
+          type: number
+          example: 10
+        WeightOfOnePiece:
+          type: number
+          example: 10
+
+    Handling:
+      type: object
+      properties:
+        SCI:
+          type: string
+          example: DG
+        SpecialHandlingCode:
+          type: array
+          items:
+            type: string
+          example: ["ICE", "PIL", "CAO"]
+        HandlingInformation:
+          type: string
+          example: "DANGEROUS GOODS AS PER ATTACHED DGD. CARGO AIRCRAFT ONLY. HANDLE WITH CARE. KEEP AWAY FROM HEAT SOURCES."
+        OtherServiceInformation:
+          type: string
+          example: "OSI/YY SHIPPER DECLARES DG IN COMPLIANCE WITH IATA DGR. TEMPERATURE MAINTAIN 5-25 DEG C."
+        OptionalShippingInformation:
+          type: string
+          example: "CARGO REQUIRES PRIOR ARRANGEMENT. ADVANCE NOTIFICATION REQUIRED BEFORE ARRIVAL."
+
+    Document:
+      type: object
+      properties:
+        DocumentName:
+          type: string
+        DocumentLink:
+          type: string
+          format: uri
+      required:
+        - DocumentName
+        - DocumentLink

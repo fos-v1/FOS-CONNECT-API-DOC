@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Air Export Shipment API Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Swagger UI CSS from CDN -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .topbar,
+      .swagger-ui .topbar {
+        display: none;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        box-shadow: 0 1px 0 rgba(15, 23, 42, 0.2);
+      }
+
+      .header-title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .header-subtitle {
+        font-size: 13px;
+        margin-top: 2px;
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        user-select: none;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .theme-toggle {
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        padding: 4px 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        background: transparent;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        user-select: none;
+      }
+
+      .theme-toggle span {
+        font-size: 13px;
+      }
+
+      .content {
+        flex: 1;
+        padding: 12px 0 24px;
+      }
+
+      #swagger-ui {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 16px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        overflow: hidden;
+      }
+
+      .swagger-ui .info .title {
+        font-size: 24px;
+      }
+
+      .swagger-ui .opblock {
+        border-radius: 8px;
+      }
+
+      .swagger-ui .model-box-control:focus,
+      .swagger-ui select:focus,
+      .swagger-ui input:focus,
+      .swagger-ui textarea:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 1px;
+      }
+
+      /* Light theme */
+      body[data-theme="light"] {
+        background: #f3f4f6;
+        color: #111827;
+      }
+
+      body[data-theme="light"] .header {
+        background: linear-gradient(90deg, #ffffff, #dbeafe);
+        color: #111827;
+      }
+
+      body[data-theme="light"] .header-subtitle {
+        color: #6b7280;
+      }
+
+      body[data-theme="light"] .badge {
+        background: #eff6ff;
+        color: #1f2937;
+      }
+
+      body[data-theme="light"] .theme-toggle {
+        color: #111827;
+        border-color: rgba(148, 163, 184, 0.9);
+        background: #ffffff;
+      }
+
+      body[data-theme="light"] #swagger-ui {
+        background: #ffffff;
+      }
+
+      body[data-theme="light"] .swagger-ui {
+        background-color: #ffffff;
+      }
+
+      body[data-theme="light"] .swagger-ui .info .title {
+        color: #111827;
+      }
+
+      body[data-theme="light"] .swagger-ui .info .description {
+        color: #4b5563;
+      }
+
+      body[data-theme="light"] .swagger-ui .opblock-tag {
+        color: #111827;
+      }
+
+      body[data-theme="light"] .swagger-ui .scheme-container {
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      /* Dark theme */
+      body[data-theme="dark"] {
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+
+      body[data-theme="dark"] .header {
+        background: linear-gradient(90deg, #0f172a, #1d4ed8);
+        color: #e5e7eb;
+        box-shadow: 0 1px 0 rgba(15, 23, 42, 0.5);
+      }
+
+      body[data-theme="dark"] .header-subtitle {
+        color: #9ca3af;
+      }
+
+      body[data-theme="dark"] .badge {
+        background: transparent;
+        color: #e5e7eb;
+      }
+
+      body[data-theme="dark"] .theme-toggle {
+        color: #e5e7eb;
+        border-color: rgba(148, 163, 184, 0.7);
+        background: transparent;
+      }
+
+      body[data-theme="dark"] #swagger-ui {
+        background: #020617;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      }
+
+      body[data-theme="dark"] .swagger-ui {
+        background-color: #020617;
+      }
+
+      body[data-theme="dark"] .swagger-ui .info .title {
+        color: #e5e7eb;
+      }
+
+      body[data-theme="dark"] .swagger-ui .info .description {
+        color: #9ca3af;
+      }
+
+      body[data-theme="dark"] .swagger-ui .opblock-tag {
+        color: #e5e7eb;
+      }
+
+      body[data-theme="dark"] .swagger-ui .scheme-container {
+        background: #020617;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        #swagger-ui {
+          border-radius: 0;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <div class="page-shell">
+      <header class="header">
+        <div>
+          <div class="header-title">Air Export Shipment API</div>
+          <div class="header-subtitle">
+            OpenAPI / Swagger documentation for FOS air export shipments
+          </div>
+        </div>
+        <div class="header-right">
+          <button class="theme-toggle" id="theme-toggle" type="button">
+            <span id="theme-toggle-icon">🌙</span>
+            <span id="theme-toggle-label">Dark</span>
+          </button>
+          <div class="badge">OpenAPI 3.0.3</div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div id="swagger-ui"></div>
+      </main>
+    </div>
+
+    <!-- Swagger UI JS from CDN -->
+    <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-standalone-preset.js"></script>
+
+    <script>
+      const STORAGE_KEY = "fos-air-shipment-theme";
+
+      const applyTheme = (theme) => {
+        const body = document.body;
+        const icon = document.getElementById("theme-toggle-icon");
+        const label = document.getElementById("theme-toggle-label");
+
+        body.setAttribute("data-theme", theme);
+        if (theme === "light") {
+          icon.textContent = "☀️";
+          label.textContent = "Light";
+        } else {
+          icon.textContent = "🌙";
+          label.textContent = "Dark";
+        }
+      };
+
+      const initTheme = () => {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved === "light" || saved === "dark") return applyTheme(saved);
+
+        const prefersLight =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: light)").matches;
+        applyTheme(prefersLight ? "light" : "dark");
+      };
+
+      window.onload = () => {
+        initTheme();
+
+        const toggleBtn = document.getElementById("theme-toggle");
+        toggleBtn.addEventListener("click", () => {
+          const next =
+            document.body.getAttribute("data-theme") === "light"
+              ? "dark"
+              : "light";
+          window.localStorage.setItem(STORAGE_KEY, next);
+          applyTheme(next);
+        });
+
+        SwaggerUIBundle({
+          url: "openapi.yaml", // relative to this index.html
+          dom_id: "#swagger-ui",
+          deepLinking: true,
+          presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+          layout: "BaseLayout",
+          // Keep the bottom "Schemas/Models" section open by default
+          // (does NOT auto-expand nested properties inside each schema)
+          defaultModelsExpandDepth: 1,
+        });
+      };
+    </script>
+  </body>
+</html>
+
