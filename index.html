@@ -306,9 +306,8 @@
           deepLinking: true,
           presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
           layout: "BaseLayout",
-          // Keep the bottom "Schemas/Models" section open by default
-          // (does NOT auto-expand nested properties inside each schema)
-          defaultModelsExpandDepth: 1,
+          // Show Schemas section (it will only contain Shipment)
+          defaultModelsExpandDepth: 0,
         });
       };
     </script>
