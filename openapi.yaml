@@ -46,12 +46,39 @@ paths:
             schema:
               $ref: '#/components/schemas/Shipment'
       responses:
-        '201':
-          description: Shipment created
+        '200':
+          description: Shipment created Successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Shipment'
+                type: object
+                properties:
+                  Message:
+                    type: string
+                    example: Shipment created Successfully
+                  Code:
+                    type: integer
+                    example: 200
+                required:
+                  - Message
+                  - Code
+        '400':
+          description: Shipment creation failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Message:
+                    type: string
+                    example: Shipment creation failed
+                  Code:
+                    type: integer
+                    example: 400
+                required:
+                  - Message
+                  - Code
+                
 
 components:
   schemas:
