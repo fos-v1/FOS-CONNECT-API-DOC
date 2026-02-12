@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Air Export Shipment API
+  title: FOS CONNECT API DOCUMENTATION
   version: 1.0.0
-  description: API for creating Air shipment records.
+  description: FOS CONNECT API 
 
 servers:
   - url: http://test.freightoscope.com
