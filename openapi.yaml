@@ -445,10 +445,9 @@ paths:
                   - Code
   /get/shipment:
     get:
-      summary: Create a new inland shipment
+      summary: Get shared shipment details
       description: >
-        Creates an inland shipment in Freightoscope.
-        Authentication is provided via query parameters in the request URL.
+        Fetches shipment details shared with the company.
       operationId: getSharedShipment
       parameters:
         - in: query
@@ -520,7 +519,7 @@ paths:
           description: Numeric company identifier.
           example: 20263
         - in: query
-          name: JObNumber
+          name: JobNumber
           required: true
           schema:
             type: string
@@ -1223,7 +1222,8 @@ components:
         EventDateTime:
           type: string
           description: Event timestamp in ISO format
-          example: 02-12-2026T00:10:00
+          example: 2026-12-02T00:10:00
+          format: date-time
 
         Status:
           type: string
