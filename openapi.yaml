@@ -493,14 +493,214 @@ paths:
                 type: object
                 properties:
                   Message:
-                    type: string
-                    example: Shipment created Successfully
-                  Code:
-                    type: integer
-                    example: 200
-                required:
-                  - Message
-                  - Code
+                    description: Data fetched successfully
+                  Data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        shipments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              General:
+                                type: object
+                                properties:
+                                  ShipmentMode:
+                                    example: Air
+                                  ShipmentDirection:
+                                    example: Import
+                                  ShipmentType:
+                                    example: 
+                                  ReferenceNumber:
+                                    example: 6gg8kk
+                                  IsDomestic:
+                                    example: false
+                                  ShipmentNumber:
+                                    example: SHP/26/00401
+                                  AWBType:
+                                    example: 
+                                  ShipmentDate:
+                                    example: '2026-1-5'
+                                  DeliveryDate:
+                                    example: '2026-1-5'
+                                  Carrier:
+                                    type: object
+                                    properties:
+                                      Code:
+                                        example: BA
+                                      Name:
+                                        example: British Airways
+                                  MAWB:
+                                    example: 125-99037783
+                                  BL:
+                                    example: 
+                                  CMRNo:
+                                    example: 
+                                  ShipmentModeType:
+                                    example: 
+                                  ServiceType:
+                                    example: 
+                                  JobType:
+                                    example: 
+                                  JobNumber:
+                                    example: '102'
+                              Parties:
+                                type: object
+                                properties:
+                                  List:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Name:
+                                          example: ABB MEXICO
+                                        PartyType:
+                                          example: SHIPPER
+                                        Email:
+                                          example: 
+                                        Address1:
+                                          example: AV CENTRAL , NO 310, COL. PARQUE LO
+                                        Address2:
+                                          example: 'GISTICO, C.P. 78395, N/A, SAN LUIS '
+                                        Address3:
+                                          example: 
+                                        City:
+                                          example: SAN LUIS POTOS?
+                                        Country:
+                                          example: MX
+                                        Zipcode:
+                                          example: '78395'
+                                        State:
+                                          example: ''
+                                        Phone:
+                                          example: "+52 444 870 8000"
+                              Routing:
+                                type: object
+                                properties:
+                                  MovementType:
+                                    example: 
+                                  IncoTerm:
+                                    example: DPU
+                                  PickupAddress:
+                                    example: PA
+                                  PlaceOfReceipt:
+                                    example: PR
+                                  PlaceOfDelivery:
+                                    example: PD
+                                  FinalDestination:
+                                    example: ''
+                                  DeliveryAddress:
+                                    example: DA
+                                  TransitTimeString:
+                                    example: '000:13:00'
+                                  ServiceTerm:
+                                    example: 
+                                  Flights:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        FromAirport:
+                                          example: BOM
+                                        ToAirport:
+                                          example: DXB
+                                        Carrier:
+                                          type: object
+                                          properties:
+                                            Code:
+                                              example: BA
+                                            Name:
+                                              example: British Airways
+                                        FlightNo:
+                                          example: BA167
+                                        ETD:
+                                          example: '2026-1-22'
+                                        ETA:
+                                          example: '2026-1-23'
+                                        ActualDepartureDate:
+                                          example: '2026-1-24'
+                                        ActualArrivalDate:
+                                          example: '2026-1-26'
+                                  Voyages:
+                                    example: 
+                                  Carriages:
+                                    example: 
+                              Goods:
+                                type: object
+                                properties:
+                                  List:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        ContainerNo:
+                                          example: 
+                                        Pcs:
+                                          example: 10
+                                        PackageType:
+                                          example: AN
+                                        CommodityType:
+                                          example: General
+                                        RateClass:
+                                          example: B
+                                        GrossWeight:
+                                          example: 100
+                                        GrossWeightUOM:
+                                          example: KGS
+                                        ChargeableWeight:
+                                          example: 100
+                                        ChargeableWeightUOM:
+                                          example: KGS
+                                        Volume:
+                                          example: 200
+                                        VolumeUOM:
+                                          example: CBM
+                                        SLAC:
+                                          example: 0
+                                        CommodityItemNumber:
+                                          example: 
+                                        Commodity:
+                                          example: Horses
+                                        TruckNumber:
+                                          example: 
+                                        HSCodes:
+                                          example: []
+                                        DimensionsUOM:
+                                          example: 
+                                        Dimensions:
+                                          example: []
+                                        MarksAndNumbers:
+                                          example: 
+                                        GoodsDescription:
+                                          example: 
+                              ContainerDetails:
+                                type: object
+                                properties:
+                                  List:
+                                    example: 
+                              TruckDetails:
+                                type: object
+                                properties:
+                                  List:
+                                    example: 
+                              Handling:
+                                type: object
+                                properties:
+                                  SCI:
+                                    example: A
+                                  SpecialHandlingCode:
+                                    type: array
+                                    items:
+                                      example: ATT-Goods Attached to Air Waybill
+                                  HandlingInformation:
+                                    example: Content 4
+                                  OtherServiceInformation:
+                                    example: Loeren Ipsum Other Service Information
+                                  OptionalShippingInformation:
+                                    example: Optional Shipping Information Loren Optional Shipping Information
+                
   /post/tracking:
     post:
       tags: [Tracking]
