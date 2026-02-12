@@ -9,7 +9,7 @@ servers:
     description: Test Freightoscope environment
 
 paths:
-  /CreateShipment AIR:
+  /post/shipment/air:
     post:
       summary: Create a new air shipment
       description: >
@@ -79,7 +79,7 @@ paths:
                   - Message
                   - Code
 
-  /CreateShipment SEA:
+  /post/shipment/sea:
     post:
       summary: Create a new sea shipment
       description: >
@@ -254,7 +254,7 @@ paths:
                 required:
                   - Message
                   - Code
-  /CreateShipment INLAND:
+  /post/shipment/inland:
     post:
       summary: Create a new inland shipment
       description: >
@@ -443,7 +443,7 @@ paths:
                 required:
                   - Message
                   - Code
-  /SharedShipment:
+  /get/shipment:
     get:
       summary: Create a new inland shipment
       description: >
@@ -491,7 +491,7 @@ paths:
                   - Message
                   - Code
 
-  /SharedTracking:
+  /get/tracking:
     get:
       summary: Get Tracking details of the shipment
       description: Fetches tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
@@ -550,7 +550,7 @@ paths:
                   - Message
                   - Code
 
-  /PostSharedTracking:
+  /post/tracking:
     post:
       summary: Post Tracking details of the shipment
       description: es tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
@@ -612,7 +612,7 @@ paths:
                 required:
                   - Message
                   - Code
-  /POSTShipmentDocument:
+  /post/shipment/document:
     post:
       summary: Upload document for shipment
       description: >
@@ -659,7 +659,7 @@ paths:
                     type: string
                   Code:
                     type: integer
-  /GETShipmentDocument:
+  /get/shipment/document:
     get:
       summary: Get documents for shipment
       description: >
