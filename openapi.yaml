@@ -501,67 +501,6 @@ paths:
                 required:
                   - Message
                   - Code
-
-  /get/tracking:
-    get:
-      tags: [Tracking]
-      summary: Get Tracking details of the shipment
-      description: Fetches tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
-      operationId: getSharedTracking
-      parameters:
-        - in: query
-          name: UserName
-          required: true
-          schema:
-            type: string
-          description: Application user name.
-          example: FOS_Connect
-        - in: query
-          name: Password
-          required: true
-          schema:
-            type: string
-            format: password
-          description: Application password.
-          example: Zhypility@123
-        - in: query
-          name: CompanyId
-          required: true
-          schema:
-            type: integer
-          description: Numeric company identifier.
-          example: 20263
-        - in: query
-          name: JobNumber
-          required: true
-          schema:
-            type: string
-          Description: Job Number of Shipment Shared by the Sender
-          example: SHPT-9321   
-      responses:
-        '200':
-          description: Tracking data fetched succsessfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Tracking'
-        '400':
-          description: Shipment creation failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  Message:
-                    type: string
-                    example: Shipment creation failed
-                  Code:
-                    type: integer
-                    example: 400
-                required:
-                  - Message
-                  - Code
-
   /post/tracking:
     post:
       tags: [Tracking]
@@ -625,6 +564,67 @@ paths:
                 required:
                   - Message
                   - Code
+  /get/tracking:
+    get:
+      tags: [Tracking]
+      summary: Get Tracking details of the shipment
+      description: Fetches tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
+      operationId: getSharedTracking
+      parameters:
+        - in: query
+          name: UserName
+          required: true
+          schema:
+            type: string
+          description: Application user name.
+          example: FOS_Connect
+        - in: query
+          name: Password
+          required: true
+          schema:
+            type: string
+            format: password
+          description: Application password.
+          example: Zhypility@123
+        - in: query
+          name: CompanyId
+          required: true
+          schema:
+            type: integer
+          description: Numeric company identifier.
+          example: 20263
+        - in: query
+          name: JobNumber
+          required: true
+          schema:
+            type: string
+          Description: Job Number of Shipment Shared by the Sender
+          example: SHPT-9321   
+      responses:
+        '200':
+          description: Tracking data fetched succsessfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tracking'
+        '400':
+          description: Shipment creation failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Message:
+                    type: string
+                    example: Shipment creation failed
+                  Code:
+                    type: integer
+                    example: 400
+                required:
+                  - Message
+                  - Code
+
+  
   /post/shipment/document:
     post:
       tags: [Documents]
