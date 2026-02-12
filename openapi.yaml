@@ -493,8 +493,8 @@ paths:
 
   /SharedTracking:
     get:
-      summary: Get Tracking details based on the JOB NUMBER of the Sender's shipment
-      description: Fetches tracking details for a shared shipment using Job number.Authentication is provided via query parameters in the request URL.
+      summary: Get Tracking details of the shipment
+      description: Fetches tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
       operationId: getSharedTracking
       parameters:
         - in: query
@@ -552,8 +552,8 @@ paths:
 
   /PostSharedTracking:
     post:
-      summary: Post Tracking details based on the JOB NUMBER of the Sender's shipment
-      description: es tracking details for a shared shipment using Job number.Authentication is provided via query parameters in the request URL.
+      summary: Post Tracking details of the shipment
+      description: es tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
       operationId: postSharedTracking
       parameters:
         - in: query
@@ -612,6 +612,95 @@ paths:
                 required:
                   - Message
                   - Code
+  /POSTShipmentDocument:
+    post:
+      summary: Upload document for shipment
+      description: >
+        Uploads a document for a specific shipment.
+        Authentication is provided via query parameters.
+      operationId: uploadShipmentDocument
+
+      parameters:
+        - in: query
+          name: UserName
+          required: true
+          schema:
+            type: string
+
+        - in: query
+          name: Password
+          required: true
+          schema:
+            type: string
+            format: password
+
+        - in: query
+          name: CompanyId
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentDocument'
+
+      responses:
+        '200':
+          description: Document uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Message:
+                    type: string
+                  Code:
+                    type: integer
+  /GETShipmentDocument:
+    get:
+      summary: Get documents for shipment
+      description: >
+        Fetches all documents linked to a specific shipment.
+      operationId: getShipmentDocuments
+
+      parameters:
+        - in: query
+          name: UserName
+          required: true
+          schema:
+            type: string
+
+        - in: query
+          name: Password
+          required: true
+          schema:
+            type: string
+            format: password
+
+        - in: query
+          name: CompanyId
+          required: true
+          schema:
+            type: integer
+
+        - in: query
+          name: ShipmentNumber
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Documents fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShipmentDocument'
 
 components:
   schemas:
@@ -1172,3 +1261,22 @@ components:
               DocumentLink:
                 type: string
                 format: uri
+    ShipmentDocument:
+      type: object
+      required:
+        - ShipmentNumber
+        - DocumentName
+        - DocumentLink
+      properties:
+        ShipmentNumber:
+          type: string
+          example: SHPT-9321
+
+        DocumentName:
+          type: string
+          example: OTHERS
+
+        DocumentLink:
+          type: string
+          format: uri
+          example: https://fileserve.blob.core.windows.net/upload/fos/2339/4347-4328-9626-1664-4065-6614-4578-4819-4539-4853-4436/MBL_final_RAMOE_25100005.pdf
