@@ -53,7 +53,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Shipment'
+              $ref: '#/components/schemas/Air Shipment'
+            
       responses:
         '200':
           description: Shipment created Successfully
@@ -124,113 +125,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Shipment'
-            example:
-              General:
-                ShipmentMode: Sea
-                ShipmentDirection: Export
-                ShipmentType: Branch
-                ReferenceNumber: ""
-                IsDomestic: true
-                ShipmentNumber: SHPT2268
-                AWB_Type: Express
-                ShipmentDate: "19/01/2026"
-                DeliveryDate: "19/01/2026"
-                Carrier:
-                  Code: MAEU
-                  Name: Maersk
-                MAWB: ""
-                BL: MAEU14279238
-                CMRNo: ""
-                ShipmentModeType: FCL
-                ServiceType: Express
-                JobType: Direct
-                JobNumber: "1405"
-              Parties:
-                List:
-                  - Name: TT Logistics
-                    PartyType: Shipper
-                    Address1: 4th floor
-                    Address2: Sahar Cargo Complex
-                    Address3: Andheri East
-                    City: Mumbai
-                    Country: India
-                    Zipcode: "400061"
-                    State: Maharashtra
-                    Phone: "+91 9967932876"
-                    Email: sahil@ttlogistics.com
-              Routing:
-                MovementType: Door to Door
-                IncoTerm: EXW
-                PickupAddress: Anushaktinagar, Chembur, Mumbai
-                PlaceOfReceipt: Mumbai
-                PlaceOfDelivery: Dubai
-                FinalDestination: Dubai
-                DeliveryAddress: Street 3, Al Amir, Dubai
-                TransitTimeString: "00:02:00"
-                ServiceTerm: CY-CY
-                Flights: []
-                Voyages:
-                  - VoyageNo: 1369-027W
-                    Carrier:
-                      Code: EVLG
-                      Name: EVERGREEN
-                    DeparturePort: INNSA
-                    ArrivalPort: AEDXB
-                    VesselName: EVER GIFTED
-                    VesselFlag: IND
-                    IMO: "IMO 93219466"
-                    LloydsNumber: "LR 1234567"
-                    ETD: "21/01/2026 00:07:00"
-                    ETA: "25/01/2026 00:11:00"
-                    ActualDepartureDate: "22/01/2026 00:08:00"
-                    ActualArrivalDate: "26/01/2026 00:12:00"
-                Carriages: []
-              ContainerDetails:
-                List:
-                  - ContainerNo: MAEU1482334
-                    ContainerSize: "20 DRY"
-                    CarrierSeal: Custom Seal
-                    CustomSeal: IN-CUS-458921
-                    ShipperOwned: true
-                    EmptyPickupType: 0
-                    EmptyPickupPort: AEDXB
-                    EmptyPickupTerminal: null
-                    EmptyPickupInstruction: >
-                      Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR and booking reference.
-              Goods:
-                List:
-                  - ContainerNo: MAEU132689334
-                    Pcs: 10
-                    PackageType: Box
-                    CommodityType: General
-                    RateClass: ""
-                    GrossWeight: 5000
-                    GrossWeightUOM: Kgs
-                    ChargeableWeight: null
-                    ChargeableWeightUOM: null
-                    Volume: 10.49
-                    VolumeUOM: CBM
-                    SLAC: null
-                    CommodityItemNumber: ""
-                    Commodity: Aircraft Parts
-                    TruckNumber: ""
-                    HSCodes: [923192]
-                    DimensionsUOM: Inch
-                    Dimensions:
-                      - UOM: Inch
-                        Pcs: 10
-                        Length: 40
-                        Width: 40
-                        Height: 40
-                        WeightOfOnePiece: 500
-                    MarksAndNumbers: >
-                      MAEU132689334 | Custom Seal: IHB-763 | Carrier Seal: IN-964-HGS
-                    GoodsDescription: >
-                      New unused aircraft parts including Engine Mount, Fuel Injector, Oil Pump assemblies
-              documentList:
-                - DocumentName: OTHERS
-                  DocumentLink: https://fileserve.blob.core.windows.net/upload/fos/2339/4387-4328-9926-1634-4055-6914-4508-4829-4099-4868-4456/MBL_final_RAMOE_25100005.pdf
+              $ref: '#/components/schemas/Sea Shipment'
+            
       responses:
         '200':
           description: Shipment created Successfully
@@ -300,127 +196,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Shipment'
-            example:
-              General:
-                ShipmentMode: Inland
-                ShipmentDirection: Export
-                ShipmentType: Branch
-                ReferenceNumber: ""
-                IsDomestic: false
-                ShipmentNumber: SHPT2271
-                AWB_Type: ""
-                ShipmentDate: "19/01/2026"
-                DeliveryDate: "19/01/2026"
-                Carrier:
-                  Code: UNITRNSP
-                  Name: "Universal Transporters"
-                MAWB: ""
-                BL: ""
-                CMRNo: UNI78327990
-                ShipmentModeType: FTL
-                ServiceType: Express
-                JobType: Direct
-                JobNumber: "1409"
-              Parties:
-                List:
-                  - Name: "Brightway International"
-                    PartyType: Consignee
-                    Address1: "Unit 501, Millennium Business Park"
-                    Address2: Mhape
-                    Address3: "Road 101"
-                    City: "Navi Mumbai"
-                    Country: India
-                    Zipcode: "400701"
-                    State: Maharashtra
-                    Phone: "09987396339"
-                    Email: vaibhav@brightways.com
-              Routing:
-                MovementType: Door to Door
-                IncoTerm: EXW
-                PickupAddress: "Anushaktinagar, Chembur, Mumbai"
-                PlaceOfReceipt: Mumbai
-                PlaceOfDelivery: Pune
-                FinalDestination: ""
-                DeliveryAddress: "Street 4, Pune"
-                TransitTimeString: "00:03:00"
-                ServiceTerm: null
-                Flights: []
-                Voyages: []
-                Carriages:
-                  - TruckNumber: "MH 03 DQ 6152"
-                    Transporter:
-                      Code: FTS
-                      Name: "Fastrack Transporters"
-                    DeparturePort: MUMCHE
-                    ArrivalPort: INPNQ
-                    IMO: "IMO 93219466"
-                    LloydsNumber: "LR 1234567"
-                    ETD: "21/01/2026 00:07:00"
-                    ETA: "25/01/2026 00:11:00"
-                    ActualDepartureDate: "22/01/2026 00:08:00"
-                    ActualArrivalDate: "26/01/2026 00:12:00"
-              ContainerDetails:
-                List:
-                  - ContainerNo: MAEU1482334
-                    ContainerSize: "20 DRY"
-                    CarrierSeal: "Custom Seal"
-                    CustomSeal: "IN-CUS-458921"
-                    ShipperOwned: true
-                    EmptyPickupType: 0
-                    EmptyPickupPort: AEDXB
-                    EmptyPickupTerminal: null
-                    EmptyPickupInstruction: >
-                      Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR and booking reference.
-              Goods:
-                List:
-                  - ContainerNo: IXT972579
-                    Pcs: 10
-                    PackageType: Box
-                    CommodityType: General
-                    RateClass: ""
-                    GrossWeight: 5000
-                    GrossWeightUOM: Kgs
-                    ChargeableWeight: null
-                    ChargeableWeightUOM: null
-                    Volume: 10.49
-                    VolumeUOM: CBM
-                    SLAC: null
-                    CommodityItemNumber: ""
-                    Commodity: "General Cargo - Laptop spare parts"
-                    TruckNumber: MH03DQ6152
-                    HSCodes: [923192]
-                    DimensionsUOM: Inch
-                    Dimensions:
-                      - UOM: Inch
-                        Pcs: 10
-                        Length: 40
-                        Width: 40
-                        Height: 40
-                        WeightOfOnePiece: 500
-                    MarksAndNumbers: "Stackable and General Cargo"
-                    GoodsDescription: "Laptop spare parts"
-              Handling:
-                SCI: ""
-                SpecialHandlingCode: []
-                HandlingInformation: >
-                  HANDLE WITH CARE - ROAD TRANSPORT. KEEP UPRIGHT. DO NOT STACK.
-                OtherServiceInformation: >
-                  EMPTY CONTAINER RETURN TO DESIGNATED DEPOT AFTER UNLOADING. POD REQUIRED WITH DRIVER SIGNATURE.
-                OptionalShippingInformation: >
-                  OSI/ROAD DRIVER TO CALL CONSIGNEE 1 HOUR PRIOR TO DELIVERY. DELIVERY ONLY DURING BUSINESS HOURS (0900-1800).
-              TruckDetails:
-                List:
-                  - Transporter:
-                      Code: UNITRNSP
-                      Name: "Universal Transporters"
-                    TruckNo: NL-TX-8745
-                    Driver: "Johan Van Dijk"
-                    ContactNo: "+31 6 1234 5678"
-                    LicenseNo: NL-DL-987654321
-              documentList:
-                - DocumentName: OTHERS
-                  DocumentLink: https://fileserve.blob.core.windows.net/upload/fos/2339/4387-4328-9926-1634-4055-6914-4508-4829-4099-4868-4456/MBL_final_RAMOE_25100005.pdf
+              $ref: '#/components/schemas/Inland Shipment'
+            
       responses:
         '200':
           description: Shipment created Successfully
@@ -493,7 +270,7 @@ paths:
                 type: object
                 properties:
                   Message:
-                    description: Data fetched successfully
+                    example: Data fetched successfully
                   Data:
                     type: array
                     items:
@@ -546,6 +323,8 @@ paths:
                                     example: 
                                   JobNumber:
                                     example: '102'
+                                  recieverCompanyId:
+                                    example: 20263  
                               Parties:
                                 type: object
                                 properties:
@@ -864,6 +643,7 @@ paths:
       responses:
         '200':
           description: Document uploaded successfully
+          
           content:
             application/json:
               schema:
@@ -871,8 +651,10 @@ paths:
                 properties:
                   Message:
                     type: string
+                    example: Document uploaded successfully
                   Code:
                     type: integer
+                    example: 200
   /get/shipment/document:
     get:
       tags: [Documents]
@@ -919,7 +701,7 @@ paths:
 
 components:
   schemas:
-    Shipment:
+    Air Shipment:
       type: object
       properties:
         General:
@@ -927,33 +709,31 @@ components:
           properties:
             ShipmentMode:
               type: string
-              description: Mode of shipment
               example: Air
             ShipmentDirection:
               type: string
-              description: Direction of shipment
               example: Export
             ShipmentType:
               type: string
               example: Branch
             ReferenceNumber:
               type: string
-              nullable: true
+              example: ''
             IsDomestic:
               type: boolean
+              example: true
             ShipmentNumber:
               type: string
+              example: SHPT2267
             AWB_Type:
               type: string
-              description: AWB type (Master/House)
+              example: Master
             ShipmentDate:
               type: string
-              description: Shipment date (DD/MM/YYYY)
-              example: "19/01/2026"
+              example: 19/01/2026
             DeliveryDate:
               type: string
-              description: Delivery date (DD/MM/YYYY)
-              example: "19/01/2026"
+              example: 19/01/2026
             Carrier:
               type: object
               properties:
@@ -963,18 +743,15 @@ components:
                 Name:
                   type: string
                   example: British Airways
-              required:
-                - Code
-                - Name
             MAWB:
               type: string
-              description: Master Air Waybill number
+              example: 125-28734893
             BL:
               type: string
-              nullable: true
+              example: ''
             CMRNo:
               type: string
-              nullable: true
+              example: ''
             ShipmentModeType:
               type: string
               nullable: true
@@ -986,21 +763,7 @@ components:
               example: Direct
             JobNumber:
               type: string
-          required:
-            - ShipmentMode
-            - ShipmentDirection
-            - ShipmentType
-            - IsDomestic
-            - ShipmentNumber
-            - AWB_Type
-            - ShipmentDate
-            - DeliveryDate
-            - Carrier
-            - MAWB
-            - ServiceType
-            - JobType
-            - JobNumber
-
+              example: '1405'
         Parties:
           type: object
           properties:
@@ -1011,34 +774,38 @@ components:
                 properties:
                   Name:
                     type: string
+                    example: Brightway International
                   PartyType:
                     type: string
                     example: Consignee
                   Address1:
                     type: string
+                    example: Unit 501, Millennium Business Park
                   Address2:
                     type: string
+                    example: Mhape
                   Address3:
                     type: string
+                    example: Road 101
                   City:
                     type: string
+                    example: Navi Mumbai
                   Country:
                     type: string
+                    example: India
                   Zipcode:
                     type: string
+                    example: '400701'
                   State:
                     type: string
+                    example: Maharashtra
                   Phone:
                     type: string
+                    example: '09987396339'
                   Email:
                     type: string
                     format: email
-                required:
-                  - Name
-                  - PartyType
-                  - City
-                  - Country
-
+                    example: vaibhav@brightways.com
         Routing:
           type: object
           properties:
@@ -1050,18 +817,22 @@ components:
               example: EXW
             PickupAddress:
               type: string
+              example: Anushaktinagar, Chembur, Mumbai
             PlaceOfReceipt:
               type: string
+              example: Mumbai
             PlaceOfDelivery:
               type: string
+              example: Bangkok
             FinalDestination:
               type: string
-              nullable: true
+              example: ''
             DeliveryAddress:
               type: string
+              example: ChinaTown, Lane 3, BKK
             TransitTimeString:
               type: string
-              description: Transit time in HH:MM:SS
+              example: '00:02:00'
             ServiceTerm:
               type: string
               nullable: true
@@ -1081,130 +852,31 @@ components:
                     properties:
                       Code:
                         type: string
-                        example: "6E"
+                        example: 6E
                       Name:
                         type: string
                         example: INDIGO
-                    required:
-                      - Code
-                      - Name
                   FlightNo:
                     type: string
+                    example: 6E1059
                   ETD:
                     type: string
-                    description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
-                    example: "21/01/2026 00:07:00"
+                    example: 21/01/2026 00:07:00
                   ETA:
                     type: string
-                    description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
-                    example: "21/01/2026 00:11:00"
+                    example: 21/01/2026 00:11:00
                   ActualDepartureDate:
                     type: string
-                    example: "21/01/2026 00:08:00"
+                    example: 21/01/2026 00:08:00
                   ActualArrivalDate:
                     type: string
-                    example: "21/01/2026 00:12:00"
+                    example: 21/01/2026 00:12:00
             Voyages:
               type: array
-              description: Vessel voyage details (used for sea shipments).
-              items:
-                type: object
-                properties:
-                  VoyageNo:
-                    type: string
-                    example: "1369-027W"
-                  Carrier:
-                    type: object
-                    properties:
-                      Code:
-                        type: string
-                        example: EVLG
-                      Name:
-                        type: string
-                        example: EVERGREEN
-                    required:
-                      - Code
-                      - Name
-                  DeparturePort:
-                    type: string
-                    example: INNSA
-                  ArrivalPort:
-                    type: string
-                    example: AEDXB
-                  VesselName:
-                    type: string
-                    example: EVER GIFTED
-                  VesselFlag:
-                    type: string
-                    example: IND
-                  IMO:
-                    type: string
-                    example: "IMO 93219466"
-                  LloydsNumber:
-                    type: string
-                    example: "LR 1234567"
-                  ETD:
-                    type: string
-                    description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
-                    example: "21/01/2026 00:07:00"
-                  ETA:
-                    type: string
-                    description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
-                    example: "25/01/2026 00:11:00"
-                  ActualDepartureDate:
-                    type: string
-                    example: "22/01/2026 00:08:00"
-                  ActualArrivalDate:
-                    type: string
-                    example: "26/01/2026 00:12:00"
+              example: []
             Carriages:
               type: array
-              description: Inland leg / trucking details (used for inland shipments).
-              items:
-                type: object
-                properties:
-                  TruckNumber:
-                    type: string
-                    example: "MH 03 DQ 6152"
-                  Transporter:
-                    type: object
-                    properties:
-                      Code:
-                        type: string
-                        example: FTS
-                      Name:
-                        type: string
-                        example: "Fastrack Transporters"
-                    required:
-                      - Code
-                      - Name
-                  DeparturePort:
-                    type: string
-                    example: MUMCHE
-                  ArrivalPort:
-                    type: string
-                    example: INPNQ
-                  IMO:
-                    type: string
-                    example: "IMO 93219466"
-                  LloydsNumber:
-                    type: string
-                    example: "LR 1234567"
-                  ETD:
-                    type: string
-                    description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
-                    example: "21/01/2026 00:07:00"
-                  ETA:
-                    type: string
-                    description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
-                    example: "25/01/2026 00:11:00"
-                  ActualDepartureDate:
-                    type: string
-                    example: "22/01/2026 00:08:00"
-                  ActualArrivalDate:
-                    type: string
-                    example: "26/01/2026 00:12:00"
-
+              example: []
         Goods:
           type: object
           properties:
@@ -1215,6 +887,7 @@ components:
                 properties:
                   ContainerNo:
                     type: string
+                    example: ''
                   Pcs:
                     type: integer
                     example: 10
@@ -1226,7 +899,7 @@ components:
                     example: General
                   RateClass:
                     type: string
-                    example: "M - Minimum Charge"
+                    example: M - Minimum Charge
                   GrossWeight:
                     type: number
                     format: float
@@ -1253,12 +926,13 @@ components:
                     example: 57
                   CommodityItemNumber:
                     type: string
-                    example: "8793"
+                    example: '8793'
                   Commodity:
                     type: string
                     example: Food Stuff
                   TruckNumber:
                     type: string
+                    example: ''
                   HSCodes:
                     type: array
                     items:
@@ -1292,14 +966,226 @@ components:
                           example: 10
                   MarksAndNumbers:
                     type: string
-                    example: "Insurance: Yes | Certificate Of Origin: Yes | Commercial Invoice: Yes"
+                    example: 'Insurance: Yes | Certificate Of Origin: Yes | Commercial Invoice:
+                      Yes'
                   GoodsDescription:
                     type: string
                     example: Food Stuff
+        Handling:
+          type: object
+          properties:
+            SCI:
+              type: string
+              example: DG
+            SpecialHandlingCode:
+              type: array
+              items:
+                type: string
+              example: [ICE, PIL, CAO]
+            HandlingInformation:
+              type: string
+              example: DANGEROUS GOODS AS PER ATTACHED DGD. CARGO AIRCRAFT ONLY. HANDLE
+                WITH CARE. KEEP AWAY FROM HEAT SOURCES.
+            OtherServiceInformation:
+              type: string
+              example: OSI/YY SHIPPER DECLARES DG IN COMPLIANCE WITH IATA DGR.
+                TEMPERATURE MAINTAIN 5-25 DEG C.
+            OptionalShippingInformation:
+              type: string
+              example: CARGO REQUIRES PRIOR ARRANGEMENT. ADVANCE NOTIFICATION
+                REQUIRED BEFORE ARRIVAL.
 
+    #SEA SHIPMENT 
+    Sea Shipment:
+      type: object
+      properties:
+        General:
+          type: object
+          properties:
+            ShipmentMode:
+              type: string
+              example: Sea
+            ShipmentDirection:
+              type: string
+              example: Export
+            ShipmentType:
+              type: string
+              example: Branch
+            ReferenceNumber:
+              type: string
+              example: ''
+            IsDomestic:
+              type: boolean
+              example: true
+            ShipmentNumber:
+              type: string
+              example: SHPT2268
+            AWB_Type:
+              type: string
+              example: Express
+            ShipmentDate:
+              type: string
+              example: 19/01/2026
+            DeliveryDate:
+              type: string
+              example: 19/01/2026
+            Carrier:
+              type: object
+              properties:
+                Code:
+                  type: string
+                  example: MAEU
+                Name:
+                  type: string
+                  example: Maersk
+            MAWB:
+              type: string
+              example: ''
+            BL:
+              type: string
+              example: MAEU14279238
+            CMRNo:
+              type: string
+              example: ''
+            ShipmentModeType:
+              type: string
+              example: FCL
+            ServiceType:
+              type: string
+              example: Express
+            JobType:
+              type: string
+              example: Direct
+            JobNumber:
+              type: string
+              example: '1405'
+        Parties:
+          type: object
+          properties:
+            List:
+              type: array
+              items:
+                type: object
+                properties:
+                  Name:
+                    type: string
+                    example: TT Logistics
+                  PartyType:
+                    type: string
+                    example: Shipper
+                  Address1:
+                    type: string
+                    example: 4th floor
+                  Address2:
+                    type: string
+                    example: Sahar Cargo Complex
+                  Address3:
+                    type: string
+                    example: Andheri East
+                  City:
+                    type: string
+                    example: Mumbai
+                  Country:
+                    type: string
+                    example: India
+                  Zipcode:
+                    type: string
+                    example: '400061'
+                  State:
+                    type: string
+                    example: Maharashtra
+                  Phone:
+                    type: string
+                    example: +91 9967932876
+                  Email:
+                    type: string
+                    format: email
+                    example: sahil@ttlogistics.com
+        Routing:
+          type: object
+          properties:
+            MovementType:
+              type: string
+              example: Door to Door
+            IncoTerm:
+              type: string
+              example: EXW
+            PickupAddress:
+              type: string
+              example: 'Anushaktinagar, Chembur, Mumbai'
+            PlaceOfReceipt:
+              type: string
+              example: Mumbai
+            PlaceOfDelivery:
+              type: string
+              example: Dubai
+            FinalDestination:
+              type: string
+              example: Dubai
+            DeliveryAddress:
+              type: string
+              example: 'Street 3, Al Amir, Dubai'
+            TransitTimeString:
+              type: string
+              example: '00:02:00'
+            ServiceTerm:
+              type: string
+              example: CY-CY
+            Flights:
+              type: array
+              example: []
+            Voyages:
+              type: array
+              items:
+                type: object
+                properties:
+                  VoyageNo:
+                    type: string
+                    example: 1369-027W
+                  Carrier:
+                    type: object
+                    properties:
+                      Code:
+                        type: string
+                        example: EVLG
+                      Name:
+                        type: string
+                        example: EVERGREEN
+                  DeparturePort:
+                    type: string
+                    example: INNSA
+                  ArrivalPort:
+                    type: string
+                    example: AEDXB
+                  VesselName:
+                    type: string
+                    example: EVER GIFTED
+                  VesselFlag:
+                    type: string
+                    example: IND
+                  IMO:
+                    type: string
+                    example: IMO 93219466
+                  LloydsNumber:
+                    type: string
+                    example: LR 1234567
+                  ETD:
+                    type: string
+                    example: '21/01/2026 00:07:00'
+                  ETA:
+                    type: string
+                    example: '25/01/2026 00:11:00'
+                  ActualDepartureDate:
+                    type: string
+                    example: '22/01/2026 00:08:00'
+                  ActualArrivalDate:
+                    type: string
+                    example: '26/01/2026 00:12:00'
+            Carriages:
+              type: array
+              example: []
         ContainerDetails:
           type: object
-          description: Container-level information (primarily for sea shipments).
           properties:
             List:
               type: array
@@ -1311,7 +1197,7 @@ components:
                     example: MAEU1482334
                   ContainerSize:
                     type: string
-                    example: "20 DRY"
+                    example: 20 DRY
                   CarrierSeal:
                     type: string
                     example: Custom Seal
@@ -1330,35 +1216,452 @@ components:
                   EmptyPickupTerminal:
                     type: string
                     nullable: true
+                    example: null
                   EmptyPickupInstruction:
                     type: string
-                    example: >
-                      Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR and booking reference.
-
+                    example: >-
+                      Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR
+                      and booking reference.
+        Goods:
+          type: object
+          properties:
+            List:
+              type: array
+              items:
+                type: object
+                properties:
+                  ContainerNo:
+                    type: string
+                    example: MAEU132689334
+                  Pcs:
+                    type: integer
+                    example: 10
+                  PackageType:
+                    type: string
+                    example: Box
+                  CommodityType:
+                    type: string
+                    example: General
+                  RateClass:
+                    type: string
+                    example: ''
+                  GrossWeight:
+                    type: number
+                    format: float
+                    example: 5000
+                  GrossWeightUOM:
+                    type: string
+                    example: Kgs
+                  ChargeableWeight:
+                    type: number
+                    format: float
+                    nullable: true
+                    example: null
+                  ChargeableWeightUOM:
+                    type: string
+                    nullable: true
+                    example: null
+                  Volume:
+                    type: number
+                    format: float
+                    example: 10.49
+                  VolumeUOM:
+                    type: string
+                    example: CBM
+                  SLAC:
+                    type: integer
+                    nullable: true
+                    example: null
+                  CommodityItemNumber:
+                    type: string
+                    example: ''
+                  Commodity:
+                    type: string
+                    example: Aircraft Parts
+                  TruckNumber:
+                    type: string
+                    example: ''
+                  HSCodes:
+                    type: array
+                    items:
+                      type: integer
+                    example: [923192]
+                  DimensionsUOM:
+                    type: string
+                    example: Inch
+                  Dimensions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        UOM:
+                          type: string
+                          example: Inch
+                        Pcs:
+                          type: integer
+                          example: 10
+                        Length:
+                          type: number
+                          example: 40
+                        Width:
+                          type: number
+                          example: 40
+                        Height:
+                          type: number
+                          example: 40
+                        WeightOfOnePiece:
+                          type: number
+                          example: 500
+                  MarksAndNumbers:
+                    type: string
+                    example: 'MAEU132689334 | Custom Seal: IHB-763 | Carrier Seal: IN-964-HGS'
+                  GoodsDescription:
+                    type: string
+                    example: >-
+                      New unused aircraft parts including Engine Mount, Fuel Injector, Oil
+                      Pump assemblies
+    #Inland Shipment
+    Inland Shipment:
+      type: object
+      properties:
+        General:
+          type: object
+          properties:
+            ShipmentMode:
+              type: string
+              example: Inland
+            ShipmentDirection:
+              type: string
+              example: Export
+            ShipmentType:
+              type: string
+              example: Branch
+            ReferenceNumber:
+              type: string
+              example: ''
+            IsDomestic:
+              type: boolean
+              example: false
+            ShipmentNumber:
+              type: string
+              example: SHPT2271
+            AWB_Type:
+              type: string
+              example: ''
+            ShipmentDate:
+              type: string
+              example: 19/01/2026
+            DeliveryDate:
+              type: string
+              example: 19/01/2026
+            Carrier:
+              type: object
+              properties:
+                Code:
+                  type: string
+                  example: UNITRNSP
+                Name:
+                  type: string
+                  example: Universal Transporters
+            MAWB:
+              type: string
+              example: ''
+            BL:
+              type: string
+              example: ''
+            CMRNo:
+              type: string
+              example: UNI78327990
+            ShipmentModeType:
+              type: string
+              example: FTL
+            ServiceType:
+              type: string
+              example: Express
+            JobType:
+              type: string
+              example: Direct
+            JobNumber:
+              type: string
+              example: '1409'
+        Parties:
+          type: object
+          properties:
+            List:
+              type: array
+              items:
+                type: object
+                properties:
+                  Name:
+                    type: string
+                    example: Brightway International
+                  PartyType:
+                    type: string
+                    example: Consignee
+                  Address1:
+                    type: string
+                    example: 'Unit 501, Millennium Business Park'
+                  Address2:
+                    type: string
+                    example: Mhape
+                  Address3:
+                    type: string
+                    example: Road 101
+                  City:
+                    type: string
+                    example: Navi Mumbai
+                  Country:
+                    type: string
+                    example: India
+                  Zipcode:
+                    type: string
+                    example: '400701'
+                  State:
+                    type: string
+                    example: Maharashtra
+                  Phone:
+                    type: string
+                    example: 09987396339
+                  Email:
+                    type: string
+                    example: vaibhav@brightways.com
+        Routing:
+          type: object
+          properties:
+            MovementType:
+              type: string
+              example: Door to Door
+            IncoTerm:
+              type: string
+              example: EXW
+            PickupAddress:
+              type: string
+              example: 'Anushaktinagar, Chembur, Mumbai'
+            PlaceOfReceipt:
+              type: string
+              example: Mumbai
+            PlaceOfDelivery:
+              type: string
+              example: Pune
+            FinalDestination:
+              type: string
+              example: ''
+            DeliveryAddress:
+              type: string
+              example: 'Street 4, Pune'
+            TransitTimeString:
+              type: string
+              example: '00:03:00'
+            ServiceTerm:
+              type: string
+              nullable: true
+              example: null
+            Flights:
+              type: array
+              example: []
+            Voyages:
+              type: array
+              example: []
+            Carriages:
+              type: array
+              items:
+                type: object
+                properties:
+                  TruckNumber:
+                    type: string
+                    example: MH 03 DQ 6152
+                  Transporter:
+                    type: object
+                    properties:
+                      Code:
+                        type: string
+                        example: FTS
+                      Name:
+                        type: string
+                        example: Fastrack Transporters
+                  DeparturePort:
+                    type: string
+                    example: MUMCHE
+                  ArrivalPort:
+                    type: string
+                    example: INPNQ
+                  IMO:
+                    type: string
+                    example: IMO 93219466
+                  LloydsNumber:
+                    type: string
+                    example: LR 1234567
+                  ETD:
+                    type: string
+                    example: '21/01/2026 00:07:00'
+                  ETA:
+                    type: string
+                    example: '25/01/2026 00:11:00'
+                  ActualDepartureDate:
+                    type: string
+                    example: '22/01/2026 00:08:00'
+                  ActualArrivalDate:
+                    type: string
+                    example: '26/01/2026 00:12:00'
+        ContainerDetails:
+          type: object
+          properties:
+            List:
+              type: array
+              items:
+                type: object
+                properties:
+                  ContainerNo:
+                    type: string
+                    example: MAEU1482334
+                  ContainerSize:
+                    type: string
+                    example: 20 DRY
+                  CarrierSeal:
+                    type: string
+                    example: Custom Seal
+                  CustomSeal:
+                    type: string
+                    example: IN-CUS-458921
+                  ShipperOwned:
+                    type: boolean
+                    example: true
+                  EmptyPickupType:
+                    type: integer
+                    example: 0
+                  EmptyPickupPort:
+                    type: string
+                    example: AEDXB
+                  EmptyPickupTerminal:
+                    type: string
+                    nullable: true
+                    example: null
+                  EmptyPickupInstruction:
+                    type: string
+                    example: >-
+                      Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR
+                      and booking reference.
+        Goods:
+          type: object
+          properties:
+            List:
+              type: array
+              items:
+                type: object
+                properties:
+                  ContainerNo:
+                    type: string
+                    example: IXT972579
+                  Pcs:
+                    type: integer
+                    example: 10
+                  PackageType:
+                    type: string
+                    example: Box
+                  CommodityType:
+                    type: string
+                    example: General
+                  RateClass:
+                    type: string
+                    example: ''
+                  GrossWeight:
+                    type: number
+                    format: float
+                    example: 5000
+                  GrossWeightUOM:
+                    type: string
+                    example: Kgs
+                  ChargeableWeight:
+                    type: number
+                    nullable: true
+                    example: null
+                  ChargeableWeightUOM:
+                    type: string
+                    nullable: true
+                    example: null
+                  Volume:
+                    type: number
+                    format: float
+                    example: 10.49
+                  VolumeUOM:
+                    type: string
+                    example: CBM
+                  SLAC:
+                    type: integer
+                    nullable: true
+                    example: null
+                  CommodityItemNumber:
+                    type: string
+                    example: ''
+                  Commodity:
+                    type: string
+                    example: General Cargo - Laptop spare parts
+                  TruckNumber:
+                    type: string
+                    example: MH03DQ6152
+                  HSCodes:
+                    type: array
+                    items:
+                      type: integer
+                    example: [923192]
+                  DimensionsUOM:
+                    type: string
+                    example: Inch
+                  Dimensions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        UOM:
+                          type: string
+                          example: Inch
+                        Pcs:
+                          type: integer
+                          example: 10
+                        Length:
+                          type: number
+                          example: 40
+                        Width:
+                          type: number
+                          example: 40
+                        Height:
+                          type: number
+                          example: 40
+                        WeightOfOnePiece:
+                          type: number
+                          example: 500
+                  MarksAndNumbers:
+                    type: string
+                    example: Stackable and General Cargo
+                  GoodsDescription:
+                    type: string
+                    example: Laptop spare parts
         Handling:
           type: object
           properties:
             SCI:
               type: string
-              example: DG
+              example: ''
             SpecialHandlingCode:
               type: array
               items:
                 type: string
-              example: ["ICE", "PIL", "CAO"]
+              example: []
             HandlingInformation:
               type: string
-              example: "DANGEROUS GOODS AS PER ATTACHED DGD. CARGO AIRCRAFT ONLY. HANDLE WITH CARE. KEEP AWAY FROM HEAT SOURCES."
+              example: HANDLE WITH CARE - ROAD TRANSPORT. KEEP UPRIGHT. DO NOT STACK.
             OtherServiceInformation:
               type: string
-              example: "OSI/YY SHIPPER DECLARES DG IN COMPLIANCE WITH IATA DGR. TEMPERATURE MAINTAIN 5-25 DEG C."
+              example: >-
+                EMPTY CONTAINER RETURN TO DESIGNATED DEPOT AFTER UNLOADING. POD REQUIRED
+                WITH DRIVER SIGNATURE.
             OptionalShippingInformation:
               type: string
-              example: "CARGO REQUIRES PRIOR ARRANGEMENT. ADVANCE NOTIFICATION REQUIRED BEFORE ARRIVAL."
-
+              example: >-
+                OSI/ROAD DRIVER TO CALL CONSIGNEE 1 HOUR PRIOR TO DELIVERY. DELIVERY ONLY
+                DURING BUSINESS HOURS (0900-1800).
         TruckDetails:
           type: object
-          description: Truck and driver details (used for inland shipments).
           properties:
             List:
               type: array
@@ -1373,43 +1676,497 @@ components:
                         example: UNITRNSP
                       Name:
                         type: string
-                        example: "Universal Transporters"
-                    required:
-                      - Code
-                      - Name
+                        example: Universal Transporters
                   TruckNo:
                     type: string
                     example: NL-TX-8745
                   Driver:
                     type: string
-                    example: "Johan Van Dijk"
+                    example: Johan Van Dijk
                   ContactNo:
                     type: string
-                    example: "+31 6 1234 5678"
+                    example: +31 6 1234 5678
                   LicenseNo:
                     type: string
                     example: NL-DL-987654321
 
-        documentList:
-          type: array
-          items:
-            type: object
-            properties:
-              DocumentName:
-                type: string
-              DocumentLink:
-                type: string
-                format: uri
-            required:
-              - DocumentName
-              - DocumentLink
-
-      required:
-        - General
-        - Parties
-        - Routing
-        - Goods
-
+    #Shipment:
+    #  type: object
+    #  properties:
+    #    General:
+    #      type: object
+    #      properties:
+    #        ShipmentMode:
+    #          type: string
+    #          description: Mode of shipment
+    #          example: Air
+    #        ShipmentDirection:
+    #          type: string
+    #          description: Direction of shipment
+    #          example: Export
+    #        ShipmentType:
+    #          type: string
+    #          example: Branch
+    #        ReferenceNumber:
+    #          type: string
+    #          nullable: true
+    #        IsDomestic:
+    #          type: boolean
+    #        ShipmentNumber:
+    #          type: string
+    #        AWB_Type:
+    #          type: string
+    #          description: AWB type (Master/House)
+    #        ShipmentDate:
+    #          type: string
+    #          description: Shipment date (DD/MM/YYYY)
+    #          example: "19/01/2026"
+    #        DeliveryDate:
+    #          type: string
+    #          description: Delivery date (DD/MM/YYYY)
+    #          example: "19/01/2026"
+    #        Carrier:
+    #          type: object
+    #          properties:
+    #            Code:
+    #              type: string
+    #              example: BA
+    #            Name:
+    #              type: string
+    #              example: British Airways
+    #          required:
+    #            - Code
+    #            - Name
+    #        MAWB:
+    #          type: string
+    #          description: Master Air Waybill number
+    #        BL:
+    #          type: string
+    #          nullable: true
+    #        CMRNo:
+    #          type: string
+    #          nullable: true
+    #        ShipmentModeType:
+    #          type: string
+    #          nullable: true
+    #        ServiceType:
+    #          type: string
+    #          example: Express
+    #        JobType:
+    #          type: string
+    #          example: Direct
+    #        JobNumber:
+    #          type: string
+    #      required:
+    #        - ShipmentMode
+    #        - ShipmentDirection
+    #        - ShipmentType
+    #        - IsDomestic
+    #        - ShipmentNumber
+    #        - AWB_Type
+    #        - ShipmentDate
+    #        - DeliveryDate
+    #        - Carrier
+    #        - MAWB
+    #        - ServiceType
+    #        - JobType
+    #        - JobNumber
+    #
+    #    Parties:
+    #      type: object
+    #      properties:
+    #        List:
+    #          type: array
+    #          items:
+    #            type: object
+    #            properties:
+    #              Name:
+    #                type: string
+    #              PartyType:
+    #                type: string
+    #                example: Consignee
+    #              Address1:
+    #                type: string
+    #              Address2:
+    #                type: string
+    #              Address3:
+    #                type: string
+    #              City:
+    #                type: string
+    #              Country:
+    #                type: string
+    #              Zipcode:
+    #                type: string
+    #              State:
+    #                type: string
+    #              Phone:
+    #                type: string
+    #              Email:
+    #                type: string
+    #                format: email
+    #            required:
+    #              - Name
+    #              - PartyType
+    #              - City
+    #              - Country
+    #
+    #    Routing:
+    #      type: object
+    #      properties:
+    #        MovementType:
+    #          type: string
+    #          example: Door to Door
+    #        IncoTerm:
+    #          type: string
+    #          example: EXW
+    #        PickupAddress:
+    #          type: string
+    #        PlaceOfReceipt:
+    #          type: string
+    #        PlaceOfDelivery:
+    #          type: string
+    #        FinalDestination:
+    #          type: string
+    #          nullable: true
+    #        DeliveryAddress:
+    #          type: string
+    #        TransitTimeString:
+    #          type: string
+    #          description: Transit time in HH:MM:SS
+    #        ServiceTerm:
+    #          type: string
+    #          nullable: true
+    #        Flights:
+    #          type: array
+    #          items:
+    #            type: object
+    #            properties:
+    #              FromAirport:
+    #                type: string
+    #                example: BOM
+    #              ToAirport:
+    #                type: string
+    #                example: BKK
+    #              Carrier:
+    #                type: object
+    #                properties:
+    #                  Code:
+    #                    type: string
+    #                    example: "6E"
+    #                  Name:
+    #                    type: string
+    #                    example: INDIGO
+    #                required:
+    #                  - Code
+    #                  - Name
+    #              FlightNo:
+    #                type: string
+    #              ETD:
+    #                type: string
+    #                description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
+    #                example: "21/01/2026 00:07:00"
+    #              ETA:
+    #                type: string
+    #                description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
+    #                example: "21/01/2026 00:11:00"
+    #              ActualDepartureDate:
+    #                type: string
+    #                example: "21/01/2026 00:08:00"
+    #              ActualArrivalDate:
+    #                type: string
+    #                example: "21/01/2026 00:12:00"
+    #        Voyages:
+    #          type: array
+    #          description: Vessel voyage details (used for sea shipments).
+    #          items:
+    #            type: object
+    #            properties:
+    #              VoyageNo:
+    #                type: string
+    #                example: "1369-027W"
+    #              Carrier:
+    #                type: object
+    #                properties:
+    #                  Code:
+    #                    type: string
+    #                    example: EVLG
+    #                  Name:
+    #                    type: string
+    #                    example: EVERGREEN
+    #                required:
+    #                  - Code
+    #                  - Name
+    #              DeparturePort:
+    #                type: string
+    #                example: INNSA
+    #              ArrivalPort:
+    #                type: string
+    #                example: AEDXB
+    #              VesselName:
+    #                type: string
+    #                example: EVER GIFTED
+    #              VesselFlag:
+    #                type: string
+    #                example: IND
+    #              IMO:
+    #                type: string
+    #                example: "IMO 93219466"
+    #              LloydsNumber:
+    #                type: string
+    #                example: "LR 1234567"
+    #              ETD:
+    #                type: string
+    #                description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
+    #                example: "21/01/2026 00:07:00"
+    #              ETA:
+    #                type: string
+    #                description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
+    #                example: "25/01/2026 00:11:00"
+    #              ActualDepartureDate:
+    #                type: string
+    #                example: "22/01/2026 00:08:00"
+    #              ActualArrivalDate:
+    #                type: string
+    #                example: "26/01/2026 00:12:00"
+    #        Carriages:
+    #          type: array
+    #          description: Inland leg / trucking details (used for inland shipments).
+    #          items:
+    #            type: object
+    #            properties:
+    #              TruckNumber:
+    #                type: string
+    #                example: "MH 03 DQ 6152"
+    #              Transporter:
+    #                type: object
+    #                properties:
+    #                  Code:
+    #                    type: string
+    #                    example: FTS
+    #                  Name:
+    #                    type: string
+    #                    example: "Fastrack Transporters"
+    #                required:
+    #                  - Code
+    #                  - Name
+    #              DeparturePort:
+    #                type: string
+    #                example: MUMCHE
+    #              ArrivalPort:
+    #                type: string
+    #                example: INPNQ
+    #              IMO:
+    #                type: string
+    #                example: "IMO 93219466"
+    #              LloydsNumber:
+    #                type: string
+    #                example: "LR 1234567"
+    #              ETD:
+    #                type: string
+    #                description: Estimated time of departure (DD/MM/YYYY HH:MM:SS)
+    #                example: "21/01/2026 00:07:00"
+    #              ETA:
+    #                type: string
+    #                description: Estimated time of arrival (DD/MM/YYYY HH:MM:SS)
+    #                example: "25/01/2026 00:11:00"
+    #              ActualDepartureDate:
+    #                type: string
+    #                example: "22/01/2026 00:08:00"
+    #              ActualArrivalDate:
+    #                type: string
+    #                example: "26/01/2026 00:12:00"
+    #
+    #    Goods:
+    #      type: object
+    #      properties:
+    #        List:
+    #          type: array
+    #          items:
+    #            type: object
+    #            properties:
+    #              ContainerNo:
+    #                type: string
+    #              Pcs:
+    #                type: integer
+    #                example: 10
+    #              PackageType:
+    #                type: string
+    #                example: Box
+    #              CommodityType:
+    #                type: string
+    #                example: General
+    #              RateClass:
+    #                type: string
+    #                example: "M - Minimum Charge"
+    #              GrossWeight:
+    #                type: number
+    #                format: float
+    #                example: 50
+    #              GrossWeightUOM:
+    #                type: string
+    #                example: Kgs
+    #              ChargeableWeight:
+    #                type: number
+    #                format: float
+    #                example: 50
+    #              ChargeableWeightUOM:
+    #                type: string
+    #                example: Kgs
+    #              Volume:
+    #                type: number
+    #                format: float
+    #                example: 3.5
+    #              VolumeUOM:
+    #                type: string
+    #                example: CBM
+    #              SLAC:
+    #                type: integer
+    #                example: 57
+    #              CommodityItemNumber:
+    #                type: string
+    #                example: "8793"
+    #              Commodity:
+    #                type: string
+    #                example: Food Stuff
+    #              TruckNumber:
+    #                type: string
+    #              HSCodes:
+    #                type: array
+    #                items:
+    #                  type: integer
+    #                example: [932192]
+    #              DimensionsUOM:
+    #                type: string
+    #                example: CM
+    #              Dimensions:
+    #                type: array
+    #                items:
+    #                  type: object
+    #                  properties:
+    #                    UOM:
+    #                      type: string
+    #                      example: CM
+    #                    Pcs:
+    #                      type: integer
+    #                      example: 10
+    #                    Length:
+    #                      type: number
+    #                      example: 10
+    #                    Width:
+    #                      type: number
+    #                      example: 10
+    #                    Height:
+    #                      type: number
+    #                      example: 10
+    #                    WeightOfOnePiece:
+    #                      type: number
+    #                      example: 10
+    #              MarksAndNumbers:
+    #                type: string
+    #                example: "Insurance: Yes | Certificate Of Origin: Yes | Commercial Invoice: Yes"
+    #              GoodsDescription:
+    #                type: string
+    #                example: Food Stuff
+    #
+    #    ContainerDetails:
+    #      type: object
+    #      description: Container-level information (primarily for sea shipments).
+    #      properties:
+    #        List:
+    #          type: array
+    #          items:
+    #            type: object
+    #            properties:
+    #              ContainerNo:
+    #                type: string
+    #                example: MAEU1482334
+    #              ContainerSize:
+    #                type: string
+    #                example: "20 DRY"
+    #              CarrierSeal:
+    #                type: string
+    #                example: Custom Seal
+    #              CustomSeal:
+    #                type: string
+    #                example: IN-CUS-458921
+    #              ShipperOwned:
+    #                type: boolean
+    #                example: true
+    #              EmptyPickupType:
+    #                type: integer
+    #                example: 0
+    #              EmptyPickupPort:
+    #                type: string
+    #                example: AEDXB
+    #              EmptyPickupTerminal:
+    #                type: string
+    #                nullable: true
+    #              EmptyPickupInstruction:
+    #                type: string
+    #                example: >
+    #                  Collect empty container from SEDXB Yard, Gate No. 3. Driver to carry EIR and booking reference.
+    #
+    #    Handling:
+    #      type: object
+    #      properties:
+    #        SCI:
+    #          type: string
+    #          example: DG
+    #        SpecialHandlingCode:
+    #          type: array
+    #          items:
+    #            type: string
+    #          example: ["ICE", "PIL", "CAO"]
+    #        HandlingInformation:
+    #          type: string
+    #          example: "DANGEROUS GOODS AS PER ATTACHED DGD. CARGO AIRCRAFT ONLY. HANDLE WITH CARE. KEEP AWAY FROM HEAT SOURCES."
+    #        OtherServiceInformation:
+    #          type: string
+    #          example: "OSI/YY SHIPPER DECLARES DG IN COMPLIANCE WITH IATA DGR. TEMPERATURE MAINTAIN 5-25 DEG C."
+    #        OptionalShippingInformation:
+    #          type: string
+    #          example: "CARGO REQUIRES PRIOR ARRANGEMENT. ADVANCE NOTIFICATION REQUIRED BEFORE ARRIVAL."
+    #
+    #    TruckDetails:
+    #      type: object
+    #      description: Truck and driver details (used for inland shipments).
+    #      properties:
+    #        List:
+    #          type: array
+    #          items:
+    #            type: object
+    #            properties:
+    #              Transporter:
+    #                type: object
+    #                properties:
+    #                  Code:
+    #                    type: string
+    #                    example: UNITRNSP
+    #                  Name:
+    #                    type: string
+    #                    example: "Universal Transporters"
+    #                required:
+    #                  - Code
+    #                  - Name
+    #              TruckNo:
+    #                type: string
+    #                example: NL-TX-8745
+    #              Driver:
+    #                type: string
+    #                example: "Johan Van Dijk"
+    #              ContactNo:
+    #                type: string
+    #                example: "+31 6 1234 5678"
+    #              LicenseNo:
+    #                type: string
+    #                example: NL-DL-987654321
+    #
+    #
+    #    required:
+    #      - General
+    #      - Parties
+    #      - Routing
+    #      - Goods
     Tracking:
       type: object
       properties:
