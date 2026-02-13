@@ -572,13 +572,13 @@ paths:
             type: integer
           description: Numeric company identifier.
           example: 20263
-        - in: query
-          name: JobNumber
-          required: true
-          schema:
-            type: string
-          Description: Job Number of Shipment Shared by the Sender
-          example: SHPT-9321   
+#        - in: query
+#          name: JobNumber
+#          required: true
+#          schema:
+#            type: string
+#          Description: Job Number of Shipment Shared by the Sender
+#          example: SHPT-9321   
       responses:
         '200':
           description: Tracking data fetched succsessfully
@@ -684,7 +684,7 @@ paths:
             type: integer
 
         - in: query
-          name: ShipmentNumber
+          name: JobNumber
           required: true
           schema:
             type: string
