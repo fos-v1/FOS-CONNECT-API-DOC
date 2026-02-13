@@ -9,17 +9,58 @@ servers:
     description: Test Freightoscope environment
 
 tags:
-  - name: Shipments
+  - name: Overseas Partner Id's
+    description: API to fetch overseas partner id's for a company 
+  - name: Shipment Sharing
     description: Shipment creation and retrieval endpoints
-  - name: Tracking
+  - name: Shipment Tracking
     description: Tracking data for shared shipments
-  - name: Documents
+  - name: Shipment Documents
     description: Document uploads and downloads    
 
 paths:
+  /get/overseas partner id's:
+    get:
+      tags: [Overseas Partner Id's]
+      summary: Get overseas partner id's for a company
+      description: >
+        Fetches overseas partner id's linked to the company.
+        Authentication is provided via query parameters in the request URL.
+      operationId: getOverseasPartnerIds
+      parameters:
+        - in: query
+          name: UserName
+          required: true
+          schema:
+            type: string
+          description: Application user name.
+          example: FOS_Connect
+        - in: query
+          name: Password
+          required: true
+          schema:
+            type: string
+            format: password
+          description: Application password.
+          example: Zhypility@123
+        - in: query
+          name: CompanyId
+          required: true
+          schema:
+            type: integer
+          description: Numeric company identifier.
+          example: 20263
+      responses:
+        '200':
+          description: Overseas partner id's fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OverseasPartnerIdsResponse'
+
   /post/shipment/air:
     post:
-      tags: [Shipments]
+      tags: [Shipment Sharing]
       summary: Create a new air shipment
       description: >
         Creates an air shipment in Freightoscope.
@@ -91,7 +132,7 @@ paths:
 
   /post/shipment/sea:
     post:
-      tags: [Shipments]
+      tags: [Shipment Sharing]
       summary: Create a new sea shipment
       description: >
         Creates a sea shipment in Freightoscope.
@@ -162,7 +203,7 @@ paths:
                   - Code
   /post/shipment/inland:
     post:
-      tags: [Shipments]
+      tags: [Shipment Sharing]
       summary: Create a new inland shipment
       description: >
         Creates an inland shipment in Freightoscope.
@@ -233,7 +274,7 @@ paths:
                   - Code
   /get/shipment:
     get:
-      tags: [Shipments]
+      tags: [Shipment Sharing]
       summary: Get shared shipment details
       description: >
         Fetches shipment details shared with the company.
@@ -482,7 +523,7 @@ paths:
                 
   /post/tracking:
     post:
-      tags: [Tracking]
+      tags: [Shipment Tracking]
       summary: Post Tracking details of the shipment
       description: es tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
       operationId: postSharedTracking
@@ -545,7 +586,7 @@ paths:
                   - Code
   /get/tracking:
     get:
-      tags: [Tracking]
+      tags: [Shipment Tracking]
       summary: Get Tracking details of the shipment
       description: Fetches tracking details for a shared shipment .Authentication is provided via query parameters in the request URL.
       operationId: getSharedTracking
@@ -606,7 +647,7 @@ paths:
   
   /post/shipment/document:
     post:
-      tags: [Documents]
+      tags: [Shipment Documents]
       summary: Upload document for shipment
       description: >
         Uploads a document for a specific shipment.
@@ -657,7 +698,7 @@ paths:
                     example: 200
   /get/shipment/document:
     get:
-      tags: [Documents]
+      tags: [Shipment Documents]
       summary: Get documents for shipment
       description: >
         Fetches all documents linked to a specific shipment.
@@ -701,6 +742,61 @@ paths:
 
 components:
   schemas:
+    OverseasPartnerIdsResponse:
+      type: object
+      properties:
+        Message:
+          type: string
+          example: Data Fetched successfully
+        Data:
+          type: object
+          properties:
+            PARTIES:
+              type: object
+              properties:
+                List:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      CompanyId:
+                        type: string
+                        example: "12345"
+                      Name:
+                        type: string
+                        example: ABC Logistics
+                      Address1:
+                        type: string
+                        example: "Full address line 1"
+                      Address2:
+                        type: string
+                        example: "Full address line 2"    
+                      Address3:
+                        type: string
+                        example: "Full address line 3"
+                      City:
+                        type: string
+                        example: "Mumbai"    
+                      Country:
+                        type: string
+                        example: "IN"
+                        description: ISO country code
+                      Zipcode:
+                        type: string
+                        example: "400001"    
+                      State:
+                        type: string
+                        example: "Maharashtra"
+                      phone:
+                        type: string
+                        example: "+91 9876543210"
+                      Email:
+                        type: string
+                        format: email
+                        example:  ""
+                             
+
+
     Air Shipment:
       type: object
       properties:
