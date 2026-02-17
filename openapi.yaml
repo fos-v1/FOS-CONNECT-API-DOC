@@ -860,6 +860,9 @@ components:
             JobNumber:
               type: string
               example: '1405'
+            SenderCompanyId:
+              type: integer
+              example: 20263  
         Parties:
           type: object
           properties:
