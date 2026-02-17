@@ -5,7 +5,7 @@ info:
   description: FOS CONNECT API 
 
 servers:
-  - url: http://test.freightoscope.com
+  - url: https://fms-test-api.azurewebsites.net
     description: Test Freightoscope environment
 
 tags:
@@ -19,7 +19,7 @@ tags:
     description: Document uploads and downloads    
 
 paths:
-  /get/overseas partner id's:
+  /getoverseaspartnerlist:
     get:
       tags: [Overseas Partner Id's]
       summary: Get overseas partner id's for a company
@@ -364,7 +364,7 @@ paths:
                                     example: 
                                   JobNumber:
                                     example: '102'
-                                  recieverCompanyId:
+                                  SenderCompanyId:
                                     example: 20263  
                               Parties:
                                 type: object
@@ -860,7 +860,7 @@ components:
             JobNumber:
               type: string
               example: '1405'
-            SenderCompanyId:
+            ReceiverCompanyId:
               type: integer
               example: 20263  
         Parties:
@@ -1158,6 +1158,9 @@ components:
             JobNumber:
               type: string
               example: '1405'
+            ReceiverCompanyId:
+              type: integer
+              example: 20263  
         Parties:
           type: object
           properties:
@@ -1483,6 +1486,9 @@ components:
             JobNumber:
               type: string
               example: '1409'
+            ReceiverCompanyId:
+              type: integer
+              example: 20263  
         Parties:
           type: object
           properties:

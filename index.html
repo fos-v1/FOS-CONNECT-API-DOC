@@ -306,8 +306,12 @@
           deepLinking: true,
           presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
           layout: "BaseLayout",
-          // Show Schemas section (it will only contain Shipment)
+          //docExpansion: "full",
           defaultModelsExpandDepth: 0,
+          defaultModelExpandDepth: 0,
+          displayRequestDuration: true
+          // Show Schemas section (it will only contain Shipment)
+          //defaultModelsExpandDepth: 0,
         });
       };
     </script>
