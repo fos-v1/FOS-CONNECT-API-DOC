@@ -743,7 +743,7 @@ paths:
                 required:
                   - Message
                   - Code           
-  /shipmenttracking:
+  /shipmenttrackingpost:
     post:
       tags: [Shipment Tracking]
       summary: Post Tracking details of the shipment
@@ -944,7 +944,7 @@ paths:
                 required:
                   - Message
                   - Code         
-  /shipment_tracking:
+  /shipmenttrackingget:
     get:
       tags: [Shipment Tracking]
       summary: Get Tracking details of the shipment
