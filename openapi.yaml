@@ -90,7 +90,7 @@ paths:
                   - Message
                   - Code            
 
-  /post/shipment/air:
+  /shipment/air:
     post:
       tags: [Shipment Sharing]
       summary: Create a new air shipment
@@ -214,7 +214,7 @@ paths:
                   - Message
                   - Code   # Required fields for error response
 
-  /post/shipment/sea:
+  /shipment/sea:
     post:
       tags: [Shipment Sharing]
       summary: Create a new sea shipment
@@ -337,7 +337,7 @@ paths:
                 required:
                   - Message
                   - Code             
-  /post/shipment/inland:
+  /shipment/inland:
     post:
       tags: [Shipment Sharing]
       summary: Create a new inland shipment
